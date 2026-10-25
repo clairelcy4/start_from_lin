@@ -1,0 +1,21 @@
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ $posts = where $posts "Draft" false }}
+<section class="homepage-section latest-posts-section" id="latest-posts">
+    <div class="homepage-section-inner">
+        <h2>Latest Blog Posts</h2>
+        {{ with first 3 ($posts.ByDate.Reverse) }}
+        <div class="homepage-entry-list">
+            {{ range . }}
+            <article class="homepage-entry">
+                <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+                <p class="homepage-entry-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+                {{ with or .Description .Params.summary }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+                {{ partial "blog/taxonomies.html" . }}
+            </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <p class="homepage-empty-state">Published posts will appear here.</p>
+        {{ end }}
+    </div>
+</section>

@@ -1,28 +1,35 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://startfromlin.netlify.app/"
 languageCode = "en-us"
-title = "Claire Days"
+title = "Start From Lin"
 theme = "hugo-myportfolio-theme"
 
 [params]
+  description = "Personal blog, portfolio, and social portal for Start From Lin."
   enableSEO = true
+  custom_css_vars = ["custom_vars.css"]
+  custom_css = ["site.css", "blog.css"]
+
+  [params.social]
+    preview_image = ""
 
   [params.homepage]
-    sections = ["home", "about", "services", "skills", "contact"]
+    sections = ["home", "about", "latest-posts", "featured-projects", "connect"]
+
+  [params.navigation]
+    brand = "Start From Lin"
 
   [params.navigation.links]
     home = "HOME"
     about = "ABOUT"
-    services = "SERVICES"
-    skills = "SKILLS"
-    contact = "CONTACT"
+    latest-posts = "BLOG"
+    featured-projects = "PROJECTS"
+    connect = "CONNECT"
 
 #########################################
 # HOME SECTION
 #########################################
 [params.home]
-  title = "Claire Days"
-  subtitle = "Welcome to my Portfolio"
-  text = "Exploring IT, creativity, and everything in between."
+  title = "Start From Lin"
   background_opacity = 40
 
 #########################################

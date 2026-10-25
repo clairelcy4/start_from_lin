@@ -1,0 +1,25 @@
+{{ define "title" }}
+<header class="blog-page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="blog-page-description">{{ . }}</p>{{ end }}
+</header>
+{{ end }}
+
+{{ define "content" }}
+<section class="blog-list" aria-label="Blog posts">
+    {{ range .RegularPages.ByDate.Reverse }}
+    <article class="blog-entry">
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        <p class="blog-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ if .Draft }}<span class="blog-demo-label">Demo · draft</span>{{ end }}
+        </p>
+        {{ with or .Description .Params.summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+        {{ partial "blog/taxonomies.html" . }}
+    </article>
+    {{ else }}
+    <p class="blog-empty-state">No published posts yet.</p>
+    {{ end }}
+</section>
+{{ end }}
+
+{{ define "lists" }}{{ end }}

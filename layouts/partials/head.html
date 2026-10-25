@@ -1,0 +1,65 @@
+{{ "<!-- HEAD.HTML -->" | safeHTML }}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{ $pageTitle := .Site.Title }}
+{{ if not .IsHome }}
+    {{ $pageTitle = printf "%s | %s" .Title .Site.Title }}
+{{ end }}
+{{ $description := or .Description .Params.summary .Site.Params.description }}
+{{ $canonical := .Permalink }}
+{{ $previewImage := .Site.Params.social.preview_image }}
+{{ $ogType := "website" }}
+{{ if eq .Section "blog" }}
+    {{ $ogType = "article" }}
+{{ end }}
+
+<title>{{ $pageTitle }}</title>
+<meta name="title" content="{{ $pageTitle }}">
+{{ with .Site.Params.meta.author }}
+<meta name="author" content="{{ . }}">
+{{ end }}
+{{ with $description }}
+<meta name="description" content="{{ . }}">
+{{ end }}
+<link rel="canonical" href="{{ $canonical }}">
+
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+{{ with $description }}<meta property="og:description" content="{{ . }}">{{ end }}
+<meta property="og:url" content="{{ $canonical }}">
+{{ with $previewImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
+
+<meta name="twitter:card" content="{{ if $previewImage }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $pageTitle }}">
+{{ with $description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+{{ with $previewImage }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}
+
+<base href="{{ .Site.BaseURL }}">
+{{ hugo.Generator }}
+
+{{ "<!-- Favicon -->" | safeHTML }}
+{{ with .Site.Params.meta.favicon }}
+<link rel="shortcut icon" href="{{ . | absURL }}" type="image/x-icon">
+<link rel="icon" href="{{ . | absURL }}" type="image/x-icon">
+{{ end }}
+{{ "<!-- Bootstrap -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "plugins/bootstrap/css/bootstrap.min.css" | absURL }}" type="text/css">
+{{ "<!-- CSS Plugins -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "plugins/animate/animate.min.css" | absURL }}" type="text/css">
+{{ partial "fonts.html" . }}
+{{ "<!-- Theme CSS -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "css/default.css" | absURL }}" type="text/css">
+{{ range .Site.Params.custom_css_vars }}
+<link rel="stylesheet" href="{{ (printf "%s%s" "css/" .) | absURL }}" type="text/css">
+{{ end }}
+<link rel="stylesheet" href="{{ "css/theme.css" | absURL }}" type="text/css">
+{{ range .Site.Params.custom_css }}
+<link rel="stylesheet" href="{{ (printf "%s%s" "css/" .) | absURL }}" type="text/css">
+{{ end }}

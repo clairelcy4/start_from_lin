@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title">
+  <title id="title">Demo image for the Blog prototype</title>
+  <rect width="960" height="360" fill="#E5F1F7" />
+  <path d="M0 280C180 210 320 330 500 260s300-110 460-25v125H0Z" fill="#5FA3D0" />
+  <text x="480" y="175" fill="#293F50" font-family="sans-serif" font-size="48" text-anchor="middle">DEMO IMAGE</text>
+</svg>

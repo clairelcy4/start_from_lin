@@ -1,8 +1,6 @@
 title: "SERVICES"
 services:
   - name: "Web Development"
-    icon: "chalkboard-teacher-solid"
     text: "Building modern, responsive websites."
   - name: "Writing"
-    icon: "pen-nib-solid"
     text: "Technical writing & blog articles."

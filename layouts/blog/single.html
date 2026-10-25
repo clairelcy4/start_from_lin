@@ -1,0 +1,21 @@
+{{ define "title" }}
+<header class="blog-post-header">
+    <h1>{{ .Title }}</h1>
+    <p class="blog-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if .Draft }}<span class="blog-demo-label">Demo · draft</span>{{ end }}
+    </p>
+    {{ with or .Description .Params.summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+    {{ partial "blog/taxonomies.html" . }}
+</header>
+{{ end }}
+
+{{ define "content" }}
+<article class="blog-article">
+    <div class="blog-prose">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}
+
+{{ define "lists" }}{{ end }}
