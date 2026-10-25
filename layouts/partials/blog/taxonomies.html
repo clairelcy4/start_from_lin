@@ -1,0 +1,16 @@
+{{ $categories := .GetTerms "categories" }} {{ $tags := .GetTerms "tags" }} {{
+if or $categories $tags }}
+<nav class="blog-taxonomies" aria-label="Article categories and tags">
+  {{ with $categories }}
+  <div class="blog-taxonomy-group">
+    <span>Categories</span>
+    {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+  </div>
+  {{ end }} {{ with $tags }}
+  <div class="blog-taxonomy-group">
+    <span>Tags</span>
+    {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+  </div>
+  {{ end }}
+</nav>
+{{ end }}

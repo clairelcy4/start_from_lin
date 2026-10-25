@@ -1,0 +1,23 @@
+<section class="homepage-section connect-section" id="connect">
+  <div class="homepage-section-inner">
+    <h2>Connect</h2>
+    {{ with .Site.Data.social.links }}
+    <ul class="connect-links">
+      {{ range . }} {{ $link := . }}
+      <li>
+        {{ with $link.url }}<a
+          href="{{ . | safeURL }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ $link.name }}</a
+        >{{ else }}{{ $link.name }}{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    {{ else }}
+    <p class="homepage-empty-state">
+      Social links will appear here when ready.
+    </p>
+    {{ end }}
+  </div>
+</section>

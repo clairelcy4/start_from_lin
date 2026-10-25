@@ -1,0 +1,88 @@
+:root {
+  --BRAND-SORA: #5fa3d0;
+  --BRAND-IVORY: #faf8f3;
+  --BRAND-SLATE: #293f50;
+  --BRAND-SURFACE: #ffffff;
+  --BRAND-MIST: #e5f1f7;
+  --BRAND-SAKURA: #e9b9b7;
+  --BRAND-SAND: #e9dcc8;
+  --BRAND-LINK: #23638d;
+  --BRAND-LINK-HOVER: #194f6d;
+
+  --GENERAL-FONT: "Avenir Next", "Segoe UI", sans-serif;
+  --TITLE-FONT: Georgia, "Times New Roman", serif;
+  --BUTTON-FONT: var(--GENERAL-FONT);
+
+  --GENERAL-COLOR-1: var(--BRAND-SORA);
+  --GENERAL-COLOR-2: var(--BRAND-SURFACE);
+  --GENERAL-FONT-COLOR-1: var(--BRAND-SLATE);
+  --GENERAL-FONT-COLOR-2: var(--BRAND-LINK);
+  --GENERAL-FONT-COLOR-3: var(--BRAND-SLATE);
+  --GENERAL-FONT-COLOR-4: var(--BRAND-SLATE);
+  --GENERAL-LINK-COLOR-1: var(--BRAND-LINK);
+  --GENERAL-LINK-ACTIVE-COLOR-1: var(--BRAND-LINK-HOVER);
+  --GENERAL-LINK-COLOR-2: var(--BRAND-LINK);
+  --GENERAL-LINK-ACTIVE-COLOR-2: var(--BRAND-LINK-HOVER);
+
+  --HR-BORDER-COLOR: var(--BRAND-SAND);
+  --HR-BORDER-LIGHT-COLOR: var(--BRAND-SAND);
+
+  --NAVBAR-BACKGROUND-COLOR: rgba(250, 248, 243, 0.94);
+  --NAVBAR-FONT: var(--GENERAL-FONT);
+  --NAVBAR-BRAND-FONT: var(--TITLE-FONT);
+  --NAVBAR-BRAND-COLOR: var(--BRAND-SLATE);
+  --NAVBAR-BRAND-HOVER-COLOR: var(--BRAND-LINK);
+  --NAVBAR-BUTTON-COLOR: var(--BRAND-SLATE);
+  --NAVBAR-BUTTON-HOVER-COLOR: var(--BRAND-LINK);
+  --NAVBAR-BUTTON-ACTIVE-COLOR: var(--BRAND-LINK);
+  --NAVBAR-BUTTON-ACTIVE-BACKGROUND-COLOR: transparent;
+  --NAVBAR-FIXED-BACKGROUND-COLOR: var(--BRAND-IVORY);
+  --NAVBAR-FIXED-BRAND-COLOR: var(--BRAND-SLATE);
+  --NAVBAR-FIXED-BRAND-HOVER-COLOR: var(--BRAND-LINK-HOVER);
+  --NAVBAR-FIXED-BUTTON-COLOR: var(--BRAND-LINK);
+  --NAVBAR-FIXED-BUTTON-HOVER-COLOR: var(--BRAND-LINK-HOVER);
+}
+
+#home {
+  --HOME-BACKGROUND-COLOR: var(--BRAND-MIST);
+  --HOME-TITLE-FONT: var(--TITLE-FONT);
+  --HOME-TITLE-COLOR: var(--BRAND-SLATE);
+  --HOME-TEXT-FONT: var(--GENERAL-FONT);
+  --HOME-TEXT-COLOR: var(--BRAND-SLATE);
+}
+
+#about {
+  --about-bkg-color: var(--BRAND-IVORY);
+  --about-title-color: var(--BRAND-SLATE);
+  --about-title-bar-color: var(--BRAND-SORA);
+  --about-link-color: var(--BRAND-LINK);
+  --about-link-color-active: var(--BRAND-LINK-HOVER);
+  --about-profile-bkg-color: var(--BRAND-SURFACE);
+  --about-profile-border: 1px solid var(--BRAND-SAND);
+  --about-main-bkg-color: var(--BRAND-IVORY);
+  --about-main-text-color: var(--BRAND-SLATE);
+}
+
+#services {
+  --services-bkg-color: var(--BRAND-MIST);
+  --services-title-color: var(--BRAND-SLATE);
+  --services-title-bar-color: var(--BRAND-SORA);
+  --services-box-color: var(--BRAND-SURFACE);
+  --services-box-border-radius: 4px;
+  --services-box-shadow: none;
+  --services-icon-color: var(--BRAND-LINK);
+}
+
+#skills {
+  --skills-title-color: var(--BRAND-SLATE);
+  --skills-title-bar-color: var(--BRAND-SORA);
+  --SKILLS-CONTAINER-COLOR: var(--BRAND-MIST);
+  --SKILLS-LINKS: var(--BRAND-MIST);
+}
+
+#contact {
+  --contact-title-color: var(--BRAND-SLATE);
+  --contact-title-bar-color: var(--BRAND-SORA);
+  --contact-color: var(--BRAND-SLATE);
+  --contact-bkg-color: var(--BRAND-IVORY);
+}

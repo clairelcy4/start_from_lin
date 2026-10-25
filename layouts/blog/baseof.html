@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body id="page-top" class="blog-page">
+    <header>{{ partial "nav.html" (dict "context" . "fixed" false) }}</header>
+    <main id="list-content" class="blog-layout">
+      {{ block "title" . }}{{ partial "pages/title.html" . }}{{ end }} {{ block
+      "content" . }}{{ end }} {{ block "lists" . }}{{ partial "pages/lists.html"
+      . }}{{ end }}
+    </main>
+    <footer>{{ partial "footer.html" . }}</footer>
+    {{ partial "tail.html" . }}
+  </body>
+</html>

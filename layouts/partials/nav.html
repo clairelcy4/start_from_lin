@@ -1,0 +1,51 @@
+{{ $context := .context }}
+{{ $fixed := .fixed }}
+{{ with $context }}
+    {{ $site := .Site }}
+    {{ $links := .Site.Params.navigation.links }}
+    {{ if $links }}
+        {{ if $fixed }}
+        <nav id="navFixed" class="navbar navbar-default navbar-fixed-top">
+        {{ else }}
+        <nav id="navNotFixed" class="navbar navbar-default">
+        {{ end }}
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{ with .Site.Params.navigation.brand }}
+                    <a class="navbar-brand page-scroll" href="{{ if $context.IsHome }}#home{{ else }}{{ $site.Home.RelPermalink }}{{ end }}">{{ . | markdownify }}</a>
+                    {{ end }}
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        {{ range $site.Params.homepage.sections }}
+                            {{ $section := . }}
+                            {{ if isset $links $section }}
+                                {{ $target := $section }}
+                                {{ $href := "" }}
+                                {{ if eq $section "latest-posts" }}
+                                    {{ $href = "blog/" | relURL }}
+                                {{ else }}
+                                    {{ if eq $section "featured-projects" }}{{ $target = "projects" }}{{ end }}
+                                    {{ if $context.IsHome }}
+                                        {{ $href = printf "#%s" $target }}
+                                    {{ else }}
+                                        {{ $href = printf "%s#%s" $site.Home.RelPermalink $target }}
+                                    {{ end }}
+                                {{ end }}
+                                <li>
+                                    <a id="nav_{{ $section }}"{{ if and $context.IsHome (ne $section "latest-posts") }} class="page-scroll"{{ end }} href="{{ $href }}">{{ index $links $section }}</a>
+                                </li>
+                            {{ end }}
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {{ end }}
+{{ end }}

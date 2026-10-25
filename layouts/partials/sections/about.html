@@ -1,0 +1,28 @@
+{{ $data := .Site.Data.about }}
+<section class="homepage-section about-section" id="about">
+    <div class="homepage-section-inner">
+        <h2>{{ $data.title | default "About" }}</h2>
+        <div class="about-content">
+            {{ with $data.avatar }}
+            <img class="about-avatar" src="{{ printf "images/%s" . | relURL }}" alt="{{ $data.avatar_alt | default "Profile portrait" }}">
+            {{ end }}
+            {{ with $data.profile_text }}<div class="about-profile">{{ . | markdownify }}</div>{{ end }}
+            {{ with $data.main_text }}<div class="about-description">{{ . | markdownify }}</div>{{ end }}
+            <section class="about-skills" aria-labelledby="about-skills-title">
+                <h3 id="about-skills-title">Skills</h3>
+                {{ with .Site.Data.skills.items }}
+                <ul class="skills-list">
+                    {{ range . }}
+                    <li>
+                        <strong>{{ .name }}</strong>
+                        {{ with .description }}<span>{{ . }}</span>{{ end }}
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ else }}
+                <p class="homepage-empty-state">Skills will appear here when details are ready.</p>
+                {{ end }}
+            </section>
+        </div>
+    </div>
+</section>
